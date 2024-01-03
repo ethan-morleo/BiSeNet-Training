@@ -16,13 +16,13 @@ from lib.data.base_dataset import BaseDataset
 
 
 labels_info = [
-    {"hasInstances": False, "category": "void", "catid": 0, "name": "unlabeled", "ignoreInEval": True, "id": 0, "color": [0, 0, 0], "trainId": 255},
-    {"hasInstances": False, "category": "void", "catid": 0, "name": "ego vehicle", "ignoreInEval": True, "id": 1, "color": [0, 0, 0], "trainId": 255},
-    {"hasInstances": False, "category": "void", "catid": 0, "name": "rectification border", "ignoreInEval": True, "id": 2, "color": [0, 0, 0], "trainId": 255},
-    {"hasInstances": False, "category": "void", "catid": 0, "name": "out of roi", "ignoreInEval": True, "id": 3, "color": [0, 0, 0], "trainId": 255},
-    {"hasInstances": False, "category": "void", "catid": 0, "name": "static", "ignoreInEval": True, "id": 4, "color": [0, 0, 0], "trainId": 255},
-    {"hasInstances": False, "category": "void", "catid": 0, "name": "dynamic", "ignoreInEval": True, "id": 5, "color": [111, 74, 0], "trainId": 255},
-    {"hasInstances": False, "category": "void", "catid": 0, "name": "ground", "ignoreInEval": True, "id": 6, "color": [81, 0, 81], "trainId": 255},
+    {"hasInstances": False, "category": "void", "catid": 0, "name": "unlabeled", "ignoreInEval": False, "id": 0, "color": [0, 0, 0], "trainId": 19},
+    {"hasInstances": False, "category": "void", "catid": 0, "name": "ego vehicle", "ignoreInEval": False, "id": 1, "color": [0, 0, 0], "trainId": 19},
+    {"hasInstances": False, "category": "void", "catid": 0, "name": "rectification border", "ignoreInEval": False, "id": 2, "color": [0, 0, 0], "trainId": 19},
+    {"hasInstances": False, "category": "void", "catid": 0, "name": "out of roi", "ignoreInEval": False, "id": 3, "color": [0, 0, 0], "trainId": 19},
+    {"hasInstances": False, "category": "void", "catid": 0, "name": "static", "ignoreInEval": False, "id": 4, "color": [0, 0, 0], "trainId": 19},
+    {"hasInstances": False, "category": "void", "catid": 0, "name": "dynamic", "ignoreInEval": False, "id": 5, "color": [111, 74, 0], "trainId": 19},
+    {"hasInstances": False, "category": "void", "catid": 0, "name": "ground", "ignoreInEval": False, "id": 6, "color": [81, 0, 81], "trainId": 19},
     {"hasInstances": False, "category": "flat", "catid": 1, "name": "road", "ignoreInEval": False, "id": 7, "color": [128, 64, 128], "trainId": 0},
     {"hasInstances": False, "category": "flat", "catid": 1, "name": "sidewalk", "ignoreInEval": False, "id": 8, "color": [244, 35, 232], "trainId": 1},
     {"hasInstances": False, "category": "flat", "catid": 1, "name": "parking", "ignoreInEval": True, "id": 9, "color": [250, 170, 160], "trainId": 255},
@@ -61,7 +61,7 @@ class CityScapes(BaseDataset):
     def __init__(self, dataroot, annpath, trans_func=None, mode='train'):
         super(CityScapes, self).__init__(
                 dataroot, annpath, trans_func, mode)
-        self.n_cats = 19
+        self.n_cats = 20
         self.lb_ignore = 255
         self.lb_map = np.arange(256).astype(np.uint8)
         for el in labels_info:
